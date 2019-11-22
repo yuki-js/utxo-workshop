@@ -1,9 +1,9 @@
 FROM rust:slim-stretch
 
 WORKDIR /
-RUN apt update && \
-apt upgrade -y && \
-apt install git build-essential libssl-dev pkg-config clang -y && \
+RUN apt-get update && \
+apt-get upgrade -y && \
+apt-get install git build-essential libssl-dev pkg-config clang -y && \
 rustup update nightly && \
 rustup target add wasm32-unknown-unknown --toolchain nightly && \
 rustup update stable && \

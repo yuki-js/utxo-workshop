@@ -1,5 +1,5 @@
 FROM rust:slim-stretch
-
+ENV TERM=xterm-256color
 WORKDIR /
 RUN apt-get update && \
 apt-get upgrade -y && \

@@ -5,6 +5,7 @@ use primitives::{H256, H512};
 use rstd::collections::btree_map::BTreeMap;
 use runtime_io::sr25519_verify;
 use runtime_primitives::traits::{As, BlakeTwo256, Hash};
+use std::println;
 #[cfg(feature = "std")]
 use serde_derive::{Deserialize, Serialize};
 use support::{

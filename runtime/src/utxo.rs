@@ -106,6 +106,7 @@ decl_module! {
         /// Dispatch a single transaction and update UTXO set accordingly
         pub fn execute(origin, transaction: Transaction) -> Result {
             ensure_inherent(origin)?;
+            println!("{:?}", &transaction);
 
             // Verify the transaction
             let leftover = match Self::check_transaction(&transaction)? {
@@ -170,7 +171,7 @@ impl<T: Trait> Module<T> {
     /// Check transaction for validity.
     pub fn check_transaction(transaction: &Transaction) -> CheckResult<'_> {
         // TODO
-
+        println!("unko");
         Ok(CheckInfo::Totals {
             input: 0,
             output: 0,

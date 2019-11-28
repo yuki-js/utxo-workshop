@@ -5,7 +5,6 @@ use primitives::{H256, H512};
 use rstd::collections::btree_map::BTreeMap;
 use runtime_io::sr25519_verify;
 use runtime_primitives::traits::{As, BlakeTwo256, Hash};
-use std::println;
 #[cfg(feature = "std")]
 use serde_derive::{Deserialize, Serialize};
 use support::{
@@ -107,7 +106,7 @@ decl_module! {
         /// Dispatch a single transaction and update UTXO set accordingly
         pub fn execute(origin, transaction: Transaction) -> Result {
             ensure_inherent(origin)?;
-            println!("{:?}", &transaction);
+            runtime_io::print("execute");
 
             // Verify the transaction
             let leftover = match Self::check_transaction(&transaction)? {
@@ -172,7 +171,7 @@ impl<T: Trait> Module<T> {
     /// Check transaction for validity.
     pub fn check_transaction(transaction: &Transaction) -> CheckResult<'_> {
         // TODO
-        println!("unko");
+        runtime_io::print("unko");
         Ok(CheckInfo::Totals {
             input: 0,
             output: 0,
